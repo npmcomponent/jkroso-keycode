@@ -1,6 +1,3 @@
-// Source: http://jsfiddle.net/vWx8V/
-// http://stackoverflow.com/questions/5603195/full-list-of-javascript-keycodes
-
 /**
  * Conenience method returns corresponding value for given keyName or keyCode.
  *
@@ -8,9 +5,10 @@
  * @return {Mixed}
  * @api public
  */
+
 exports = module.exports = function (search) {
-	if (typeof search === 'string') return codes[search.toLowerCase()]
-	return names[search]
+  if (typeof search === 'string') return codes[search.toLowerCase()]
+  return names[search]
 }
 
 /**
@@ -18,49 +16,50 @@ exports = module.exports = function (search) {
  *
  *   exports.code['Enter'] // => 13
  */
-var codes = exports.code = {
-	'backspace': 8,
-	'tab': 9,
-	'enter': 13,
-	'shift': 16,
-	'ctrl': 17,
-	'alt': 18,
-	'pause/break': 19,
-	'caps lock': 20,
-	'esc': 27,
-	'space': 32,
-	'page up': 33,
-	'page down': 34,
-	'end': 35,
-	'home': 36,
-	'left': 37,
-	'up': 38,
-	'right': 39,
-	'down': 40,
-	'insert': 45,
-	'delete': 46,
-	'windows': 91,
-	'right click': 93,
-	'numpad *': 106,
-	'numpad +': 107,
-	'numpad -': 109,
-	'numpad .': 110,
-	'numpad /': 111,
-	'num lock': 144,
-	'scroll lock': 145,
-	'my computer': 182,
-	'my calculator': 183,
-	';': 186,
-	'=': 187,
-	',': 188,
-	'-': 189,
-	'.': 190,
-	'/': 191,
-	'`': 192,
-	'[': 219,
-	'\\': 220,
-	']': 221,
-	"'": 222
+
+var codes = exports.codes = exports.code = {
+  'backspace': 8,
+  'tab': 9,
+  'enter': 13,
+  'shift': 16,
+  'ctrl': 17,
+  'alt': 18,
+  'pause/break': 19,
+  'caps lock': 20,
+  'esc': 27,
+  'space': 32,
+  'page up': 33,
+  'page down': 34,
+  'end': 35,
+  'home': 36,
+  'left': 37,
+  'up': 38,
+  'right': 39,
+  'down': 40,
+  'insert': 45,
+  'delete': 46,
+  'windows': 91,
+  'right click': 93,
+  'numpad *': 106,
+  'numpad +': 107,
+  'numpad -': 109,
+  'numpad .': 110,
+  'numpad /': 111,
+  'num lock': 144,
+  'scroll lock': 145,
+  'my computer': 182,
+  'my calculator': 183,
+  ';': 186,
+  '=': 187,
+  ',': 188,
+  '-': 189,
+  '.': 190,
+  '/': 191,
+  '`': 192,
+  '[': 219,
+  '\\': 220,
+  ']': 221,
+  "'": 222
 }
 
 /*!
@@ -137,7 +136,8 @@ for (i = 0; i < 10; i++) codes['numpad '+i] = i + 96
  *
  *   exports.name[13] // => 'Enter'
  */
-var names = exports.title = {}
+
+var names = exports.title = exports.titles = exports.names = {}
 
 // Create reverse mapping
 for (i in codes) names[codes[i]] = i
