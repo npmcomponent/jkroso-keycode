@@ -6,9 +6,9 @@
  * @api public
  */
 
-exports = module.exports = function (search) {
-  if (typeof search === 'string') return codes[search.toLowerCase()]
-  return names[search]
+exports = module.exports = function (k) {
+  if (typeof k === 'string') return codes[k.toLowerCase()]
+  return names[k]
 }
 
 /**
@@ -17,7 +17,7 @@ exports = module.exports = function (search) {
  *   exports.code['Enter'] // => 13
  */
 
-var codes = exports.codes = exports.code = {
+var codes = exports.codes = {
   'backspace': 8,
   'tab': 9,
   'enter': 13,
@@ -38,7 +38,7 @@ var codes = exports.codes = exports.code = {
   'down': 40,
   'insert': 45,
   'delete': 46,
-  'windows': 91,
+  'super': 91,
   'right click': 93,
   'numpad *': 106,
   'numpad +': 107,
@@ -59,77 +59,75 @@ var codes = exports.codes = exports.code = {
   '[': 219,
   '\\': 220,
   ']': 221,
-  "'": 222
+  '\'': 222
 }
 
 /*!
- * Programatically add the following
+ * Programatically add the rest
  */
+
 for (var i = 48; i < 58; i++) codes[i - 48] = i
-// '0': 48,
-// '1': 49,
-// '2': 50,
-// '3': 51,
-// '4': 52,
-// '5': 53,
-// '6': 54,
-// '7': 55,
-// '8': 56,
-// '9': 57,
-
+// 0: 48
+// 1: 49
+// 2: 50
+// 3: 51
+// 4: 52
+// 5: 53
+// 6: 54
+// 7: 55
+// 8: 56
+// 9: 57
 for (i = 97; i < 123; i++) codes[String.fromCharCode(i)] = i - 32
-// 'a': 65,
-// 'b': 66,
-// 'c': 67,
-// 'd': 68,
-// 'e': 69,
-// 'f': 70,
-// 'g': 71,
-// 'h': 72,
-// 'i': 73,
-// 'j': 74,
-// 'k': 75,
-// 'l': 76,
-// 'm': 77,
-// 'n': 78,
-// 'o': 79,
-// 'p': 80,
-// 'q': 81,
-// 'r': 82,
-// 's': 83,
-// 't': 84,
-// 'u': 85,
-// 'v': 86,
-// 'w': 87,
-// 'x': 88,
-// 'y': 89,
-// 'z': 90,
-
+// a: 65
+// b: 66
+// c: 67
+// d: 68
+// e: 69
+// f: 70
+// g: 71
+// h: 72
+// i: 73
+// j: 74
+// k: 75
+// l: 76
+// m: 77
+// n: 78
+// o: 79
+// p: 80
+// q: 81
+// r: 82
+// s: 83
+// t: 84
+// u: 85
+// v: 86
+// w: 87
+// x: 88
+// y: 89
+// z: 90
 for (i = 1; i < 13; i++) codes['f'+i] = i + 111
-// 'f1': 112,
-// 'f2': 113,
-// 'f3': 114,
-// 'f4': 115,
-// 'f5': 116,
-// 'f6': 117,
-// 'f7': 118,
-// 'f8': 119,
-// 'f9': 120,
-// 'f10': 121,
-// 'f11': 122,
-// 'f12': 123,
-
+// f1: 112
+// f2: 113
+// f3: 114
+// f4: 115
+// f5: 116
+// f6: 117
+// f7: 118
+// f8: 119
+// f9: 120
+// f10: 121
+// f11: 122
+// f12: 123
 for (i = 0; i < 10; i++) codes['numpad '+i] = i + 96
-// 'numpad 0': 96,
-// 'numpad 1': 97,
-// 'numpad 2': 98,
-// 'numpad 3': 99,
-// 'numpad 4': 100,
-// 'numpad 5': 101,
-// 'numpad 6': 102,
-// 'numpad 7': 103,
-// 'numpad 8': 104,
-// 'numpad 9': 105,
+// numpad 0: 96
+// numpad 1: 97
+// numpad 2: 98
+// numpad 3: 99
+// numpad 4: 100
+// numpad 5: 101
+// numpad 6: 102
+// numpad 7: 103
+// numpad 8: 104
+// numpad 9: 105
 
 /**
  * Get by code
@@ -137,7 +135,7 @@ for (i = 0; i < 10; i++) codes['numpad '+i] = i + 96
  *   exports.name[13] // => 'Enter'
  */
 
-var names = exports.title = exports.titles = exports.names = {}
+var names = exports.names = {}
 
-// Create reverse mapping
+// reverse mapping
 for (i in codes) names[codes[i]] = i
