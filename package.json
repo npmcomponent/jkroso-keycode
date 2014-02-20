@@ -1,5 +1,8 @@
 {
-	"name":"keycode",
-	"version": "0.0.3",
-	"main": "index.js"
+  "name": "jkroso-keycode",
+  "description": "Map of keyboard codes",
+  "version": "0.0.3",
+  "keywords": [],
+  "dependencies": {},
+  "license": "MIT"
 }
